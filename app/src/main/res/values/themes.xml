@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base application theme. -->
+    <style name="Theme.BarkodApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
 
-    <style name="Theme.BarkodApp" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Theme for activities with a custom Toolbar. -->
+    <style name="Theme.BarkodApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>
