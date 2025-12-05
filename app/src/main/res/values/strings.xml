@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Barkod App</string>
+    <string name="app_name">RE&amp;Up Balya Okuma</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
