@@ -10,6 +10,10 @@ import androidx.core.view.GravityCompat
 import com.example.barkodapp.databinding.ActivityMainBinding
 import com.example.barkodapp.utils.SessionManager
 import com.google.android.material.navigation.NavigationView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -34,9 +38,30 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.navView.setNavigationItemSelectedListener(this)
 
-        // Sicil numarasını göster
-        val sicilNo = sessionManager.getSicilNo()
-        binding.tvSicilNo.text = "Sicil: $sicilNo"
+        // Load user and work order info
+        loadDashboardData()
+    }
+
+    private fun loadDashboardData() {
+        // Show loading state initially
+        binding.tvSicilNo.text = "Sicil: Yükleniyor..."
+        binding.tvIsEmri.text = "İş Emri No: Yükleniyor..."
+        binding.tvOkutulanBalya.text = "Okutulan Balya: Yükleniyor..."
+        binding.tvSonBalya.text = "Son Balya No: Yükleniyor..."
+
+        // Simulate a network call to fetch data
+        CoroutineScope(Dispatchers.Main).launch {
+            delay(1500) // Simulate network delay
+
+            // Populate with real data from session
+            val sicilNo = sessionManager.getSicilNo()
+            binding.tvSicilNo.text = "Sicil: ${sicilNo ?: "N/A"}"
+
+            // Populate with dummy data for now
+            binding.tvIsEmri.text = "İş Emri No: X-12345-A"
+            binding.tvOkutulanBalya.text = "Okutulan Balya: 125"
+            binding.tvSonBalya.text = "Son Balya No: B-789-C"
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
