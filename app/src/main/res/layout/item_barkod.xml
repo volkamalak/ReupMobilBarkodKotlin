@@ -4,39 +4,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    app:cardElevation="2dp"
-    app:cardCornerRadius="8dp">
+    android:layout_marginHorizontal="2dp"
+    android:layout_marginVertical="5dp"
+    app:cardBackgroundColor="@color/reup_white"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp"
+    app:strokeColor="@color/reup_border"
+    app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="14dp">
 
         <TextView
             android:id="@+id/tvBarkodNo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Barkod: 123456789"
+            android:textColor="@color/textColorPrimary"
             android:textSize="16sp"
-            android:textColor="#333333"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnBol"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnSil" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBol"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginEnd="6dp"
+            android:minWidth="0dp"
+            android:text="Böl"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnSil"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSil"
+            style="@style/Widget.BarkodApp.Button.Danger"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:minWidth="0dp"
             android:text="Sil"
-            android:textSize="14sp"
+            android:textSize="13sp"
             app:icon="@android:drawable/ic_menu_delete"
-            app:iconSize="20dp"
-            app:backgroundTint="#E53935"
-            app:layout_constraintTop_toTopOf="parent"
+            app:iconGravity="textStart"
+            app:iconSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

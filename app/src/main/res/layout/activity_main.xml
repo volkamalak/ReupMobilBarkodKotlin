@@ -7,23 +7,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
     tools:context=".MainActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E9EEF2"> <!-- Updated background color -->
+        android:background="@color/reup_surface">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary" />
+                android:background="@color/colorPrimary"
+                app:title="RE&amp;UP Mobil"
+                app:titleTextColor="@color/colorOnPrimary" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -38,13 +40,13 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- User Info Card -->
-                <androidx.cardview.widget.CardView
+                <!-- Operatör Bilgisi Kartı -->
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp"
-                    app:cardUseCompatPadding="true">
+                    app:cardBackgroundColor="@color/reup_white"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -55,75 +57,92 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Operatör Bilgileri"
-                            android:textSize="18sp"
+                            android:text="Operatör"
+                            android:textColor="@color/textColorSecondary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPersName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Yükleniyor..."
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="20sp"
                             android:textStyle="bold"
-                            android:textColor="@color/textColorPrimary"/>
+                            tools:text="Mahmut KANTAR" />
 
-                        <TextView
-                            android:id="@+id/tvSicilNo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Sicil: Yükleniyor..."
-                            android:textSize="16sp"
-                            android:textColor="@color/textColorSecondary"/>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- Work Order Info Card -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp"
-                    app:cardUseCompatPadding="true">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Aktif İş Emri Detayları"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/textColorPrimary"/>
-
-                        <TextView
-                            android:id="@+id/tvIsEmri"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
                             android:layout_marginTop="12dp"
-                            android:text="İş Emri No: Yükleniyor..."
-                            android:textSize="16sp"
-                            android:textColor="@color/textColorSecondary"/>
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/reup_surface_alt" />
 
                         <TextView
-                            android:id="@+id/tvOkutulanBalya"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Okutulan Balya: Yükleniyor..."
-                            android:textSize="16sp"
-                            android:textColor="@color/textColorSecondary"/>
+                            android:text="Seçili Makine"
+                            android:textColor="@color/textColorSecondary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/tvSonBalya"
+                            android:id="@+id/tvMachineName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Son Balya No: Yükleniyor..."
+                            android:layout_marginTop="4dp"
+                            android:text="—"
+                            android:textColor="@color/colorPrimary"
                             android:textSize="16sp"
-                            android:textColor="@color/textColorSecondary"/>
+                            android:textStyle="bold"
+                            tools:text="Makine A" />
 
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- İş Emri Başlığı -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="İş Emirleri"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Loading göstergesi -->
+                <ProgressBar
+                    android:id="@+id/progressBarSlots"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="24dp"
+                    android:visibility="gone" />
+
+                <!-- Hata / boş mesajı -->
+                <TextView
+                    android:id="@+id/tvSlotsEmpty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="24dp"
+                    android:text="İş emri bulunamadı"
+                    android:textColor="@color/textColorSecondary"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+
+                <!-- Slot kartları (yan yana) -->
+                <LinearLayout
+                    android:id="@+id/layoutSlots"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false"
+                    android:visibility="gone" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
@@ -137,6 +156,8 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header"
+        app:itemIconTint="@color/colorPrimary"
+        app:itemTextColor="@color/textColorPrimary"
         app:menu="@menu/nav_drawer_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

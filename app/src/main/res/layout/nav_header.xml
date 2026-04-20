@@ -2,23 +2,34 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="176dp"
-    android:background="@color/design_default_color_primary"
+    android:layout_height="190dp"
+    android:background="@color/reup_black"
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:contentDescription="RE&amp;UP Logo"
         android:src="@mipmap/ic_launcher_round" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:text="RE&amp;Up Tekstil"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:layout_marginTop="10dp"
+        android:text="RE&amp;UP Elyaf"
+        android:textColor="@color/reup_white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Balya Okuma Uygulaması"
+        android:textColor="#D1D5DB"
+        android:textSize="13sp" />
 
 </LinearLayout>

@@ -1,6 +1,10 @@
+import java.text.SimpleDateFormat
+import java.util.Date
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -11,8 +15,8 @@ android {
         applicationId = "com.example.barkodapp"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = (System.currentTimeMillis() / 60000).toInt()
+        versionName = SimpleDateFormat("yy.MM.dd HH:mm").format(Date())
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -36,10 +40,9 @@ android {
         jvmTarget = "1.8"
     }
 
-    // SADECE viewBinding kalsın
     buildFeatures {
         viewBinding = true
-        // compose = true  ***SİL***
+        buildConfig = true
     }
 
     // composeOptions { ... }  ***VARSA TAMAMINI SİL***

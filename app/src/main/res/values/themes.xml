@@ -1,21 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
-    <style name="Theme.BarkodApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
+    <style name="Theme.BarkodApp" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
-        <item name="colorOnPrimary">@color/textColorPrimary</item> <!-- Text/icon color on top of primary color -->
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
 
-        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/colorAccent</item>
         <item name="colorSecondaryVariant">@color/colorAccent</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnSecondary">@color/reup_white</item>
+        <item name="colorSurface">@color/reup_white</item>
+        <item name="colorOnSurface">@color/reup_black</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:navigationBarColor">@color/reup_surface</item>
+        <item name="android:windowBackground">@color/reup_surface</item>
 
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.BarkodApp.Dialog</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.BarkodApp.Dialog</item>
+        <item name="textInputStyle">@style/Widget.BarkodApp.TextInputLayout.Outlined</item>
+        <item name="materialButtonStyle">@style/Widget.BarkodApp.Button.Primary</item>
+    </style>
 
-        <!-- Customize your theme here. -->
-        <item name="android:textColor">@color/textColorPrimary</item>
+    <style name="ThemeOverlay.BarkodApp.Dialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorOnSurface">@color/reup_black</item>
+        <item name="colorSurface">@color/reup_white</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TextAppearance.BarkodApp.DialogTitle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/TextAppearance.BarkodApp.DialogBody</item>
+    </style>
+
+    <style name="Widget.BarkodApp.TextInputLayout.Outlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/reup_white</item>
+        <item name="boxStrokeColor">@color/reup_black</item>
+        <item name="hintTextColor">@color/textColorSecondary</item>
+    </style>
+
+    <style name="Widget.BarkodApp.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/reup_black</item>
+        <item name="android:textColor">@color/reup_white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">14dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="Widget.BarkodApp.Button.Danger" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/reup_danger</item>
+        <item name="android:textColor">@color/reup_danger</item>
+        <item name="iconTint">@color/reup_danger</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <style name="TextAppearance.BarkodApp.DialogTitle" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/reup_black</item>
+    </style>
+
+    <style name="TextAppearance.BarkodApp.DialogBody" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/textColorSecondary</item>
     </style>
 </resources>

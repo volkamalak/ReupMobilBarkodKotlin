@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
 
-    // Test için IP adresi - Kendi servisinizin IP'sini buraya yazın
-    private const val BASE_URL = "http://messervice.sanko.com.tr/BarkodApp/"
+    // API sunucu adresi
+    private const val BASE_URL = "http://10.11.1.222:302/api/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY

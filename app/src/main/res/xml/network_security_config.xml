@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
+    <!-- Yeni API sunucusu: HTTP trafiğine izin ver -->
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">messervice.sanko.com.tr</domain>
-
-        <trust-anchors>
-            <!-- Sadece bizim eklediğimiz CA -->
-            <certificates src="@raw/sectigo_r36_ca" />
-
-            <!-- Ayrıca sistem CA'larına da güvenmeye devam et -->
-            <certificates src="system" />
-        </trust-anchors>
+        <domain includeSubdomains="true">10.11.1.222</domain>
     </domain-config>
 </network-security-config>

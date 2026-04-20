@@ -2,12 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_balya_okuma"
+            android:id="@+id/nav_makine_secimi"
             android:icon="@drawable/ic_barcode_scanner"
-            android:title="Balya Okuma" />
+            android:title="Makine Seçimi" />
+        <item
+            android:id="@+id/nav_depo_transfer"
+            android:icon="@android:drawable/ic_menu_send"
+            android:title="Depolar Arası Transfer" />
+        <item
+            android:id="@+id/nav_guncelleme"
+            android:icon="@android:drawable/ic_menu_rotate"
+            android:title="Güncelleme" />
         <item
             android:id="@+id/nav_guvenli_cikis"
             android:icon="@drawable/ic_logout"
             android:title="Güvenli Çıkış" />
     </group>
 </menu>
+

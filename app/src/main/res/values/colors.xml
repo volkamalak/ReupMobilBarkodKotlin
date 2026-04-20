@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primary Brand Colors -->
-    <color name="colorPrimary">#FFFFFF</color> <!-- White Toolbar -->
-    <color name="colorPrimaryDark">#CCCCCC</color> <!-- A slightly darker grey for the status bar -->
-    <color name="colorAccent">#000000</color> <!-- Black for accent, e.g., icons or buttons -->
+    <!-- Marka renkleri -->
+    <color name="reup_black">#111111</color>
+    <color name="reup_white">#FFFFFF</color>
+    <color name="reup_surface">#F3F4F6</color>
+    <color name="reup_surface_alt">#E7EAEE</color>
+    <color name="reup_border">#D1D5DB</color>
+    <color name="reup_success">#22C55E</color>
+    <color name="reup_success_dark">#16A34A</color>
+    <color name="reup_danger">#EF4444</color>
+    <color name="reup_danger_dark">#B91C1C</color>
+    <color name="reup_card_idle">#9CA3AF</color>
 
-    <!-- Text Colors -->
-    <color name="textColorPrimary">#000000</color> <!-- Black text for on-light backgrounds -->
-    <color name="textColorSecondary">#424242</color> <!-- Dark Grey for secondary text -->
+    <!-- Toolbar: koyu gri arka plan, üzerinde beyaz yazı/ikon -->
+    <color name="colorPrimary">#1F2937</color>
+    <color name="colorPrimaryDark">#111827</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorAccent">#111111</color>
 
-    <!-- Standard Colors -->
+    <!-- Genel metin -->
+    <color name="textColorPrimary">#111111</color>
+    <color name="textColorSecondary">#4B5563</color>
+    <color name="textColorOnDark">#FFFFFF</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

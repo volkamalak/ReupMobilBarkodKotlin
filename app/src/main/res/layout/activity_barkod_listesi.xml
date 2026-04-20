@@ -5,119 +5,194 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="@color/reup_surface"
     tools:context=".BarkodListesiActivity">
 
-    <!-- Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        app:title="Barkod Listesi"
-        app:titleTextColor="@android:color/white"
+        android:background="@color/reup_black"
+        android:elevation="3dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@android:drawable/ic_menu_revert"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:navigationIconTint="@color/reup_white"
+        app:title="Balya Barkod Okutma"
+        app:titleTextColor="@color/reup_white" />
 
-    <!-- Barkod Girişi -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilBarkod"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/inputCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Barkod Numarası"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/reup_white"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"
-        app:boxBackgroundMode="outline">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etBarkod"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:imeOptions="actionDone"
-            android:maxLines="1"
-            android:textSize="16sp" />
+            android:orientation="vertical"
+            android:padding="12dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilBarkod"
+                style="@style/Widget.BarkodApp.TextInputLayout.Outlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Barkod Numarası"
+                app:endIconMode="custom"
+                app:endIconDrawable="@android:drawable/ic_menu_edit"
+                app:endIconContentDescription="Manuel giriş">
 
-    <!-- Liste Başlığı -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etBarkod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Ağırlık Bilgi Kartı (sadece Factory 87 için görünür) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardAgirlikLimit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/reup_white"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputCard">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Toplam Ağırlık"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvToplamAgirlik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 / 3400 kg"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
     <TextView
         android:id="@+id/tvListeBaslik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eklenen Barkodlar"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="14dp"
+        android:text="Okutulan Barkodlar"
+        android:textColor="@color/textColorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#333333"
-        app:layout_constraintTop_toBottomOf="@id/tilBarkod"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintTop_toBottomOf="@id/cardAgirlikLimit" />
 
     <TextView
         android:id="@+id/tvBarkodSayisi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="(0)"
-        android:textSize="16sp"
-        android:textColor="#666666"
-        app:layout_constraintTop_toTopOf="@id/tvListeBaslik"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@id/tvListeBaslik"
         app:layout_constraintStart_toEndOf="@id/tvListeBaslik"
-        android:layout_marginStart="8dp" />
+        app:layout_constraintTop_toTopOf="@id/tvListeBaslik" />
 
-    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="16dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="12dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/tvListeBaslik"
         app:layout_constraintBottom_toTopOf="@id/btnGonder"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvListeBaslik"
         tools:listitem="@layout/item_barkod" />
 
-    <!-- Boş Liste Mesajı -->
     <TextView
         android:id="@+id/tvEmptyMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Henüz barkod eklenmedi"
+        android:textColor="@color/textColorSecondary"
         android:textSize="16sp"
-        android:textColor="#999999"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="@id/recyclerView"
         app:layout_constraintBottom_toBottomOf="@id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/recyclerView" />
 
-    <!-- Gönder Butonu -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnGonder"
+        style="@style/Widget.BarkodApp.Button.Primary"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:text="Gönder"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_margin="16dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Listeyi Gönder"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Loading -->
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#80000000"
+        android:elevation="8dp"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/reup_white" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
